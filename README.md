@@ -2,7 +2,8 @@
 
 
 ## Built With
-* Node: MySQL, Express, and Jest
+* MySQL
+* Express and Jest (Node)
 * JavaScript
 
 

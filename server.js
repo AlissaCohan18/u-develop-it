@@ -1,3 +1,6 @@
+//12.3.3 sat @ 4:02pm
+    //12.3.7, 12.4.6, 12.5.6
+
 const express = require("express");
 const mysql = require("mysql2");
 const inputCheck = require("./utils/inputCheck");

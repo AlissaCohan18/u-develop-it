@@ -1,6 +1,3 @@
-//12.4.6
-//12.5.6
-
 const express = require("express");
 const db = require('./db/connection');
 //defaults to index.js (vs typing ./routes/apiRoutes/index.js)

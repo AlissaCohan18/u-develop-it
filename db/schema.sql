@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS votes;
 -- Drop candidates table first b/c foreign key constraint req parties table to exist
 DROP TABLE IF EXISTS candidates;
 DROP TABLE IF EXISTS parties;
@@ -29,4 +30,15 @@ CREATE TABLE voters (
   email VARCHAR(50) NOT NULL,
   -- if/when not entered manually, the default will be to use the CURRENT_TIME
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE votes (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  voter_id INTEGER NOT NULL,
+  candidate_id INTEGER NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT uc_voter UNIQUE (voter_id),
+  -- deleting the reference key will also delete the entire row from this table
+  CONSTRAINT fk_voter FOREIGN KEY (voter_id) REFERENCES voters(id) ON DELETE CASCADE,
+  CONSTRAINT fk_candidate FOREIGN KEY (candidate_id) REFERENCES candidates(id) ON DELETE CASCADE
 );
